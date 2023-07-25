@@ -3,6 +3,7 @@ package com.ps.filter;
 import com.ps.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -17,6 +18,9 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @Component
 public class LoginCheckFilter implements GlobalFilter, Ordered {
+
+    @Value("${jwt.signKey}")
+    private String signKey;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain filterChain) {
@@ -50,7 +54,7 @@ public class LoginCheckFilter implements GlobalFilter, Ordered {
         }
 //       5.解析令牌，如果失败，返回错误结果
         try {
-            Claims claims = JwtUtils.parseJWT(jwt);
+            Claims claims = JwtUtils.parseJWT(jwt, signKey);
         } catch (Exception e) {//解析失败
             log.info("解析令牌失败，返回未登录错误信息");
             resp.setStatusCode(HttpStatus.UNAUTHORIZED);
