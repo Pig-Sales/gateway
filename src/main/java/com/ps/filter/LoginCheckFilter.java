@@ -33,6 +33,10 @@ public class LoginCheckFilter implements GlobalFilter, Ordered {
                 log.info("登录操作直接放行");
                 return filterChain.filter(exchange);
             }
+            if (url.equals("/goods/getGoodsById") || url.equals("/goods/getGoodsByConditions") || url.equals("/goods/getTodayPrice")){
+                log.info("获取商品基本信息操作，放行");
+                return filterChain.filter(exchange);
+            }
         }
 
         //3.获取请求头令牌(token)
