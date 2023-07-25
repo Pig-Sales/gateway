@@ -27,7 +27,7 @@ public class LoginCheckFilter implements GlobalFilter, Ordered {
         String url = req.getURI().getPath();
         log.info("请求的url:{}",url);
 
-        //2.判断url是否是login或register
+        //2.判断url是否是被放行
         if(req.getMethod().toString().equals("POST")){
             if(url.equals("/user/login")){
                 log.info("登录操作直接放行");
