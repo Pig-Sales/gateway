@@ -37,7 +37,7 @@ public class LoginCheckFilter implements GlobalFilter, Ordered {
                 log.info("登录操作直接放行");
                 return filterChain.filter(exchange);
             }
-            if (url.equals("/goods/getGoodsById") || url.equals("/goods/getGoodsByConditions") || url.equals("/goods/getTodayPrice")){
+            if (url.equals("/goods/getGoodsById") || url.equals("/goods/getGoodsByConditions") || url.equals("/goods/getTodayPrice")|| url.equals("/goods/getGoodsByGoodsType")){
                 log.info("获取商品基本信息操作，放行");
                 return filterChain.filter(exchange);
             }
