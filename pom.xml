@@ -51,11 +51,6 @@
             <artifactId>apm-toolkit-logback-1.x</artifactId>
             <version>8.14.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.xhpolaris</groupId>
-            <artifactId>service-idl-gen-java</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
 
     <build>
