@@ -7,7 +7,7 @@
         <groupId>com.ps</groupId>
         <artifactId>ps_parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/>
+        <relativePath>../ps_parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>gateway</artifactId>
@@ -51,17 +51,13 @@
             <artifactId>apm-toolkit-logback-1.x</artifactId>
             <version>8.14.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.xhpolaris</groupId>
+            <artifactId>service-idl-gen-java</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
-    <repositories>
-        <repository>
-            <id>utils</id>
-            <url>https://raw.githubusercontent.com/Pig-Sales/utils/main/repo</url>
-        </repository>
-        <repository>
-            <id>ps_parent</id>
-            <url>https://raw.githubusercontent.com/Pig-Sales/ps_parent/main/repo</url>
-        </repository>
-    </repositories>
+
     <build>
         <plugins>
             <plugin>
